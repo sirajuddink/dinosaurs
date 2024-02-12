@@ -32,7 +32,7 @@ def getLetter(csv_data):
         else:
             similar_names_dict[value] = [name_list[i]]
     
-    print(similar_names_dict.values())
+    #print(similar_names_dict.values())
     for value in similar_names_dict.values():
         if len(value) > 1:
             similar_names_substring_list.append(value)
@@ -40,7 +40,7 @@ def getLetter(csv_data):
     return similar_names_substring_list
 
 def readFile():
-    with open(r"D:\Python\dinosaurs.csv") as csvfile:
+    with open(r"/home/skhan/dinosaurs/dinosaurs.csv") as csvfile:
         csv_reader = csv.reader(csvfile)
         next(csv_reader)  
         data = list(csv_reader)
@@ -50,9 +50,8 @@ def main():
         csv_data = readFile()
         output_one = getMaxlength(csv_data)
         output_two = getLetter(csv_data)    
-        print(output_one)
-        print(output_two)
-
+        print("Biggest Dinosour is: "+output_one)
+        print("list of dinosaurs that can be made using the same letters: " +str(output_two))
 
 if __name__ == "__main__":
     main()     
